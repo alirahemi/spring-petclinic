@@ -25,8 +25,12 @@
           th:with="text=${owner['new']} ? 'Add Owner' : 'Update Owner'"
           class="btn btn-default" type="submit" th:text="${text}">Add
           Owner</button>
+        <a
+          th:if="${owner.id != null}"
+          class="btn btn-danger" th:href="@{/owners/{ownerId}/delete(ownerId=${owner.id})}">Delete Owner</a>
       </div>
     </div>
   </form>
+
 </body>
 </html>

@@ -69,4 +69,6 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
 	@Transactional(readOnly = true)
 	Page<Owner> findAll(Pageable pageable);
 
+	void deleteOwnerById(Integer id);
+
 }
