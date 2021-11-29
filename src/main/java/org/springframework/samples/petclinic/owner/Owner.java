@@ -63,6 +63,18 @@ public class Owner extends Person {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
 	private Set<Pet> pets;
 
+	@Column(name = "zip_code")
+	@NotEmpty
+	private String zipCode;
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
 	public String getAddress() {
 		return this.address;
 	}
@@ -143,9 +155,15 @@ public class Owner extends Person {
 	public String toString() {
 		return new ToStringCreator(this)
 
-				.append("id", this.getId()).append("new", this.isNew()).append("lastName", this.getLastName())
-				.append("firstName", this.getFirstName()).append("address", this.address).append("city", this.city)
-				.append("telephone", this.telephone).toString();
+				.append("id", this.getId())
+				.append("new", this.isNew())
+				.append("lastName", this.getLastName())
+				.append("firstName", this.getFirstName())
+				.append("address", this.address)
+				.append("city", this.city)
+				.append("telephone", this.telephone)
+				.append("zipCode", this.zipCode)
+				.toString();
 	}
 
 }
